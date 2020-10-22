@@ -1,0 +1,51 @@
+@import '../../themes/colors.scss';
+
+.header-root {
+  background: $ml-primary;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1em;
+
+  .logo {
+    height: 35px;
+    position: relative;
+    width: auto;
+    padding: 10px;
+  }
+
+  .searchBar {
+    display: flex;
+    z-index: 5;
+    padding-left: 1em;
+
+    .ant-select {
+      width: 100%;
+    }
+
+    input {
+      border-radius: 0.3em 0 0 0.3em!important;
+      box-shadow: none !important;
+      border: none;
+      height: 38px;
+      width: 600px;
+      padding-left: 1em;
+    }
+
+    button {
+      background-color: 'gray';
+      border: none !important;
+      color: 'black';
+      height: 38px;
+      width: 38px;
+      cursor: pointer;
+      border-radius: 0;
+      font-size: 0.85em;
+
+      .text {
+        font-family: 'Roboto', sans-serif;
+      }
+    }
+  } 
+}
