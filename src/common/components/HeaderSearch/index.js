@@ -30,13 +30,12 @@ export class HeaderSearch extends React.Component {
   }
 
   searchItems(query) {
-    console.log('this.props on header :>> ', this.props);
     this.props.history.push(`/items?q=${query}`);
   }
 
   render() {
     return (
-      <Header className="header-root">
+      <div className="header-root">
         <div>
           <img
             src={LogoIcon}
@@ -51,7 +50,7 @@ export class HeaderSearch extends React.Component {
             onSearch={this.searchItems}
           />
         </div>
-      </Header>
+      </div>
     );
   }
 };

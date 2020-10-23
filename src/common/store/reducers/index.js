@@ -18,7 +18,6 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case SET_SEARCH_FIELD: {
-      console.log('action :>> ', action);
       const { text } = action.payload;
       return { ...state, search: text };
     }

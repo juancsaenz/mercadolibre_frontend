@@ -12,9 +12,9 @@ class App extends Component {
   render() {
     const { location, route } = this.props;
 
-    let title = "Server Side Rendered React";
+    let title = "Mercadolibre";
     if(location && location.pathname === "/") {
-      title = "Home page"
+      title = "Mercadolibre"
     }
 
     let metatags = [
@@ -33,7 +33,7 @@ class App extends Component {
 
     return(
       <div className="app">
-        <Helmet title={ title } meta={ metatags } />
+        <Helmet title={ title } meta={ metatags } bodyAttributes={{style: 'background-color : #F0F0F0'}} />
         { renderRoutes(route.routes) }
       </div>
     )

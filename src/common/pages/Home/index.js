@@ -4,7 +4,7 @@ import Header from "../../components/HeaderSearch";
 class Home extends Component {
   render() {
     return(
-      <div className="page home">
+      <div>
         <Header />
       </div>
     )

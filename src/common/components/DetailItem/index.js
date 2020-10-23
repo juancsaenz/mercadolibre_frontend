@@ -54,9 +54,9 @@ class ItemDetail extends Component {
   }
 
   formatPrice(amount) {
-    return new Intl.NumberFormat("es-AR", {
+    return new Intl.NumberFormat("es-CO", {
       style: "currency",
-      currency: "ARS",
+      currency: "COP",
       minimumFractionDigits: 0
     }).format(amount);
   }
@@ -93,7 +93,7 @@ class ItemDetail extends Component {
     } else {
       return (
         <div className="main-container">
-          <Loader type="Circles" color="#3483FA" />;
+          <Loader type="Puff" color="#3483FA" />
         </div>
       );
     }

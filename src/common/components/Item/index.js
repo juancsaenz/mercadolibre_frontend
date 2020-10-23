@@ -20,13 +20,12 @@ class Item extends Component {
   constructor(props) {
     super(props);
     this.goToDetail = this.goToDetail.bind(this);
-    console.log('props :>> ', props);
   }
 
   formatPrice(amount) {
-    return new Intl.NumberFormat("es-AR", {
+    return new Intl.NumberFormat("es-CO", {
       style: "currency",
-      currency: "ARS",
+      currency: "COP",
       minimumFractionDigits: 0
     }).format(amount);
   }
@@ -47,7 +46,7 @@ class Item extends Component {
             <h1 className="results-item__price">
                 $
               {this.props.item.price}
-              {this.props.item.free_shipping ? <img src={shipping} alt=""/> : ''}
+              {this.props.item.shipping.free_shipping ? <img src={shipping} alt=""/> : ''}
             </h1>
 
             <p className="results-item__location">

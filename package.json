@@ -11,7 +11,9 @@
     "dev": "npm-run-all -p webpack:*",
     "build": "npm run clean && webpack --config webpack.client.js && webpack --config webpack.server.js",
     "start": "node build/server.js",
-    "clean": "rimraf build"
+    "clean": "rimraf build",
+    "test": "jest",
+    "test:coverage": "npm run test -- -u --coverage"
   },
   "author": "Camilo Sáenz",
   "license": "ISC",
@@ -21,21 +23,27 @@
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/polyfill": "^7.2.5",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
     "@babel/preset-stage-0": "^7.0.0",
     "antd": "^4.7.2",
     "axios": "^0.18.0",
+    "babel-jest": "^26.6.0",
     "babel-loader": "^8.0.5",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "body-parser": "^1.18.3",
     "css-loader": "^2.1.0",
     "cssnano": "^4.1.10",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5",
     "express": "^4.16.4",
     "extract-css-chunks-webpack-plugin": "^4.6.0",
     "file-loader": "^6.1.1",
+    "html-webpack-plugin": "^4.5.0",
+    "identity-obj-proxy": "^3.0.0",
     "intl": "^1.2.5",
+    "jest": "^26.6.0",
     "node-fetch": "^2.3.0",
     "node-sass": "^4.9.4",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
@@ -49,6 +57,7 @@
     "react-router": "^4.3.1",
     "react-router-config": "^4.4.0-beta.6",
     "react-router-dom": "^4.3.1",
+    "react-test-renderer": "^17.0.1",
     "redux": "^4.0.1",
     "redux-promise-middleware": "^6.1.1",
     "redux-thunk": "^2.3.0",
@@ -68,5 +77,36 @@
   },
   "engines": {
     "node": "8.10.x"
+  },
+  "jest": {
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+      "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
+    ],
+    "testEnvironment": "jsdom",
+    "testURL": "http://localhost",
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      "\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/index.js",
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
   }
 }

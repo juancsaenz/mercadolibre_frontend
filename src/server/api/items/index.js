@@ -61,7 +61,6 @@ const responseMiddleware = (req, res, next) => {
       description: res.data.plain_text,
     };
 
-
     mapping.categories = res.data.categories;
   }
 

@@ -35,7 +35,6 @@ class ListItems extends Component {
       "q"
     );
     if (urlParam !== null && urlParam !== this.props.search) {
-        console.log('entro al if')
       await this.props.setSearch(urlParam);
       await this.getItems();
     }
@@ -52,7 +51,6 @@ class ListItems extends Component {
     try {
       let { search } = this.props;
       const response = await fetch(`${API_URL}/api/items?q=${search}`);
-      console.log('response :>> ', response);
       let data = await response.json();
       await this.props.setItems(data);
       this.setState({ isLoading: false });
@@ -76,17 +74,25 @@ class ListItems extends Component {
       return (
         <div>
           <Header />
-          <Loader type="Circles" color="#3483FA" />;
+          <div className="main-container">
+            <Loader type="Puff" color="#3483FA" />
+          </div>
         </div>
       );
     }
 
     if (items.length) {
-      return (<div>
-        <Header />
-        <div className="main-container">
-          <ul>{items}</ul>;
-        </div>
+      return (
+        <div>
+          <Header />
+          {/* {this.state.categories.path_from_root ? (
+            <Breadcrumbs
+              categories={this.state.categories.path_from_root}
+            />
+          ) : ''} */}
+          <div className="main-container">
+            <ul>{items}</ul>;
+          </div>
         </div>)
     } else {
       let msg = this.props.noItems
